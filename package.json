@@ -20,7 +20,8 @@
     "scripts": {
         "prepublishOnly": "tsc",
         "lint": "npx @biomejs/biome check src",
-        "lint:fix": "npm run lint --apply"
+        "lint:fix": "npm run lint --apply",
+        "jsr": "bun scripts/release-jsr.ts"
     },
     "dependencies": {
         "gramio": "^0.0.35"
