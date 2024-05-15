@@ -4,8 +4,8 @@
  * Media group collector plugin for GramIO
  */
 
+import { setTimeout } from "node:timers";
 import { type Bot, type ContextType, Plugin } from "gramio";
-
 // TODO: remove it. Slow types fixes for JSR
 /**
  *	This plugin collects `mediaGroup` from messages (**1** attachment = **1** message) using a **delay**
