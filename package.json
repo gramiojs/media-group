@@ -1,0 +1,21 @@
+{
+    "name": "gramio-media-group",
+    "version": "0.0.1",
+    "description": "Plugin for GramIO",
+    "keywords": [
+        "gramio",
+        "gramio-plugin"
+    ],
+    "scripts": {
+        "lint": "npx @biomejs/biome check src",
+        "lint:fix": "npm run lint --apply"
+    },
+    "dependencies": {
+        "gramio": "^0.0.31"
+    },
+    "devDependencies": {
+        "typescript": "^5.4.5",
+        "@types/node": "^20.12.7",
+        "@biomejs/biome": "^1.7.2"
+    }
+}
