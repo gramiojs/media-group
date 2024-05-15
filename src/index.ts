@@ -54,7 +54,7 @@ export function mediaGroup(timeout = 150): Plugin<
 			| {
 					/** An array of messages from this media group */
 					mediaGroup:
-						| import("@gramio/contexts").MessageContext<
+						| import("gramio").MessageContext<
 								Bot<{}, import("gramio").DeriveDefinitions>
 						  >[]
 						| undefined;
@@ -67,7 +67,7 @@ export function mediaGroup(timeout = 150): Plugin<
 			| {
 					/** An array of messages from this media group */
 					mediaGroup:
-						| import("@gramio/contexts").MessageContext<
+						| import("gramio").MessageContext<
 								Bot<{}, import("gramio").DeriveDefinitions>
 						  >[]
 						| undefined;
@@ -80,7 +80,7 @@ export function mediaGroup(timeout = 150): Plugin<
 			| {
 					/** An array of messages from this media group */
 					mediaGroup:
-						| import("@gramio/contexts").MessageContext<
+						| import("gramio").MessageContext<
 								Bot<{}, import("gramio").DeriveDefinitions>
 						  >[]
 						| undefined;
@@ -93,7 +93,7 @@ export function mediaGroup(timeout = 150): Plugin<
 			| {
 					/** An array of messages from this media group */
 					mediaGroup:
-						| import("@gramio/contexts").MessageContext<
+						| import("gramio").MessageContext<
 								Bot<{}, import("gramio").DeriveDefinitions>
 						  >[]
 						| undefined;
@@ -106,7 +106,7 @@ export function mediaGroup(timeout = 150): Plugin<
 			| {
 					/** An array of messages from this media group */
 					mediaGroup:
-						| import("@gramio/contexts").MessageContext<
+						| import("gramio").MessageContext<
 								Bot<{}, import("gramio").DeriveDefinitions>
 						  >[]
 						| undefined;
@@ -119,7 +119,7 @@ export function mediaGroup(timeout = 150): Plugin<
 			| {
 					/** An array of messages from this media group */
 					mediaGroup:
-						| import("@gramio/contexts").MessageContext<
+						| import("gramio").MessageContext<
 								Bot<{}, import("gramio").DeriveDefinitions>
 						  >[]
 						| undefined;
