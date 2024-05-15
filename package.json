@@ -6,6 +6,8 @@
     "types": "./dist/index.d.ts",
     "author": "kravets",
     "license": "ISC",
+    "readme": "https://gramio.dev/plugins/official/media-group.html",
+    "homepage": "https://github.com/gramiojs/media-group",
     "keywords": [
         "gramio",
         "gramio-plugin",
