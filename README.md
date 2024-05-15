@@ -4,21 +4,43 @@
 [![JSR](https://jsr.io/badges/@gramio/media-group)](https://jsr.io/@gramio/media-group)
 [![JSR Score](https://jsr.io/badges/@gramio/media-group/score)](https://jsr.io/@gramio/media-group)
 
-A plugin that catches errors with the `retry_after` field (**rate limit** errors), **waits** for the specified time and **repeats** the API request.
+This plugin collects `mediaGroup` from messages (**1** attachment = **1** message) using a **delay** if `mediaGroupId` is in the **MessageContext**, pass only **first** message further down the middleware chain with the `mediaGroup` key, which contains an **array** of messages of this **mediaGroup** (it also contains the **first** message).
 
 ```ts
 import { Bot } from "gramio";
 import { mediaGroup } from "@gramio/media-group";
 
-const bot = new Bot(process.env.TOKEN!)
+const bot = new Bot(process.env.TOKEN as string)
     .extend(mediaGroup())
     .on("message", async (context) => {
-        console.log(context.id, "media group", context.mediaGroup);
+        if (!context.mediaGroup) return;
+
         return context.send(
-            `${context.caption} + ${context.mediaGroup?.length}`
+            `Caption from the first message - ${context.caption}. MediaGroup contains ${context.mediaGroup.length} attachments`
         );
     })
-    .onStart(console.log);
+    .onStart(({ info }) => console.log(`✨ Bot ${info.username} was started!`));
 
 bot.start();
 ```
+
+### Setup
+
+You can change the duration of the delay in milliseconds by simply passing it like this:
+
+```typescript
+const bot = new Bot(process.env.TOKEN!)
+    .extend(mediaGroup(1000)) // wait 1 second for message with mediaGroupId (refreshed after new message with it)
+    .on("message", async (context) => {
+        if (!context.mediaGroup) return;
+
+        return context.send(
+            `Caption from the first message - ${context.caption}. MediaGroup contains ${context.mediaGroup.length} attachments`
+        );
+    })
+    .onStart(({ info }) => console.log(`✨ Bot ${info.username} was started!`));
+
+bot.start();
+```
+
+By default it `150 ms`.

@@ -1,12 +1,22 @@
 {
-    "name": "gramio-media-group",
+    "name": "@gramio/media-group",
     "version": "0.0.1",
-    "description": "Plugin for GramIO",
+    "description": "Media group collector plugin for GramIO",
+    "main": "./dist/index.js",
+    "types": "./dist/index.d.ts",
+    "author": "kravets",
+    "license": "ISC",
     "keywords": [
         "gramio",
-        "gramio-plugin"
+        "gramio-plugin",
+        "media-group",
+        "media-album",
+        "media",
+        "telegram",
+        "telegram-bot-api"
     ],
     "scripts": {
+        "prepublishOnly": "tsc",
         "lint": "npx @biomejs/biome check src",
         "lint:fix": "npm run lint --apply"
     },
@@ -17,5 +27,8 @@
         "typescript": "^5.4.5",
         "@types/node": "^20.12.12",
         "@biomejs/biome": "^1.7.3"
-    }
+    },
+    "files": [
+        "dist"
+    ]
 }
