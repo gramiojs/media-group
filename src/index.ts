@@ -130,6 +130,7 @@ export function mediaGroup(timeout = 150): Plugin<
 		string,
 		{
 			messages: ContextType<Bot, "message">[];
+			next: () => unknown;
 			timeout: NodeJS.Timeout;
 		}
 	>();
@@ -152,11 +153,24 @@ export function mediaGroup(timeout = 150): Plugin<
 				if (!mediaGroupData) {
 					map.set(key, {
 						messages: [context],
+						next,
 						timeout: setTimeout(next, timeout),
 					});
 				} else {
+					if (mediaGroupData.messages.length === 9) {
+						clearTimeout(mediaGroupData.timeout);
+						map.set(key, {
+							messages: [...mediaGroupData.messages, context],
+							next: mediaGroupData.next,
+							timeout: mediaGroupData.timeout,
+						});
+
+						return mediaGroupData.next();
+					}
+
 					map.set(key, {
 						messages: [...mediaGroupData.messages, context],
+						next: mediaGroupData.next,
 						timeout: mediaGroupData.timeout.refresh(),
 					});
 				}

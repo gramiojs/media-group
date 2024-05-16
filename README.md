@@ -4,7 +4,7 @@
 [![JSR](https://jsr.io/badges/@gramio/media-group)](https://jsr.io/@gramio/media-group)
 [![JSR Score](https://jsr.io/badges/@gramio/media-group/score)](https://jsr.io/@gramio/media-group)
 
-This plugin collects `mediaGroup` from messages (**1** attachment = **1** message) using a **delay** if `mediaGroupId` is in the **MessageContext**, pass only **first** message further down the middleware chain with the `mediaGroup` key, which contains an **array** of messages of this **mediaGroup** (it also contains the **first** message).
+This plugin collects `mediaGroup` from messages (**1** attachment = **1** message) using a **delay** if `mediaGroupId` is in the **MessageContext**, pass only **first** message further down the middleware chain with the `mediaGroup` key, which contains an **array** of messages of this **mediaGroup** (it also contains the **first** message). The delay after 10 attachments (max messages in 1 mediaGroup) is automatically skipped.
 
 ```ts
 import { Bot } from "gramio";
