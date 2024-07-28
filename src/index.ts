@@ -3,9 +3,8 @@
  *
  * Media group collector plugin for GramIO
  */
-
-import { setTimeout } from "node:timers";
 import { type Bot, type ContextType, Plugin } from "gramio";
+
 // TODO: remove it. Slow types fixes for JSR
 /**
  *	This plugin collects `mediaGroup` from messages (**1** attachment = **1** message) using a **delay**
@@ -131,7 +130,7 @@ export function mediaGroup(timeout = 150): Plugin<
 		{
 			messages: ContextType<Bot, "message">[];
 			next: () => unknown;
-			timeout: NodeJS.Timeout;
+			timeout: Timer;
 		}
 	>();
 
@@ -157,8 +156,8 @@ export function mediaGroup(timeout = 150): Plugin<
 						timeout: setTimeout(next, timeout),
 					});
 				} else {
+					clearTimeout(mediaGroupData.timeout);
 					if (mediaGroupData.messages.length === 9) {
-						clearTimeout(mediaGroupData.timeout);
 						map.set(key, {
 							messages: [...mediaGroupData.messages, context],
 							next: mediaGroupData.next,
@@ -171,7 +170,8 @@ export function mediaGroup(timeout = 150): Plugin<
 					map.set(key, {
 						messages: [...mediaGroupData.messages, context],
 						next: mediaGroupData.next,
-						timeout: mediaGroupData.timeout.refresh(),
+						// or maybe use `.refresh` ...
+						timeout: setTimeout(mediaGroupData.next, timeout),
 					});
 				}
 			},
