@@ -32,10 +32,9 @@
 		"telegram-bot-api"
 	],
 	"scripts": {
-		"prepublishOnly": "tsc",
-		"lint": "npx @biomejs/biome check src",
-		"lint:fix": "npm run lint --apply",
-		"jsr": "bun scripts/release-jsr.ts"
+		"prepublishOnly": "bunx pgroll",
+		"lint": "bunx @biomejs/biome check src",
+		"lint:fix": "bun lint --write"
 	},
 	"peerDependencies": {
 		"gramio": ">=0.0.39 <1.0.0"
