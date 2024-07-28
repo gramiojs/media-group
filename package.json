@@ -1,38 +1,36 @@
 {
-  "name": "@gramio/media-group",
-  "version": "0.0.3",
-  "description": "Media group collector plugin for GramIO",
-  "main": "./dist/index.js",
-  "types": "./dist/index.d.ts",
-  "author": "kravets",
-  "license": "ISC",
-  "readme": "https://gramio.dev/plugins/official/media-group.html",
-  "homepage": "https://github.com/gramiojs/media-group",
-  "keywords": [
-    "gramio",
-    "gramio-plugin",
-    "media-group",
-    "media-album",
-    "media",
-    "telegram",
-    "telegram-bot-api"
-  ],
-  "scripts": {
-    "prepublishOnly": "tsc",
-    "lint": "npx @biomejs/biome check src",
-    "lint:fix": "npm run lint --apply",
-    "jsr": "bun scripts/release-jsr.ts"
-  },
-  "peerDependencies": {
-    "gramio": "^0.0.35"
-  },
-  "devDependencies": {
-    "@biomejs/biome": "^1.7.3",
-    "@types/node": "^20.12.12",
-    "gramio": "^0.0.36",
-    "typescript": "^5.4.5"
-  },
-  "files": [
-    "dist"
-  ]
+	"name": "@gramio/media-group",
+	"version": "0.0.4",
+	"description": "Media group collector plugin for GramIO",
+
+	"author": "kravets",
+	"license": "ISC",
+	"readme": "https://gramio.dev/plugins/official/media-group.html",
+	"homepage": "https://github.com/gramiojs/media-group",
+	"keywords": [
+		"gramio",
+		"gramio-plugin",
+		"media-group",
+		"media-album",
+		"media",
+		"telegram",
+		"telegram-bot-api"
+	],
+	"scripts": {
+		"prepublishOnly": "tsc",
+		"lint": "npx @biomejs/biome check src",
+		"lint:fix": "npm run lint --apply",
+		"jsr": "bun scripts/release-jsr.ts"
+	},
+	"peerDependencies": {
+		"gramio": ">=0.0.39 <1.0.0"
+	},
+	"devDependencies": {
+		"@biomejs/biome": "^1.7.3",
+		"@types/bun": "latest",
+		"gramio": "^0.0.46",
+		"pkgroll": "2.4.0",
+		"typescript": "^5.4.5"
+	},
+	"files": ["dist"]
 }
