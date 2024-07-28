@@ -130,7 +130,7 @@ export function mediaGroup(timeout = 150): Plugin<
 		{
 			messages: ContextType<Bot, "message">[];
 			next: () => unknown;
-			timeout: Timer;
+			timeout: ReturnType<typeof setTimeout>;
 		}
 	>();
 
