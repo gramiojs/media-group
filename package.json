@@ -19,7 +19,7 @@
 	},
 	"type": "module",
 	"author": "kravets",
-	"license": "ISC",
+	"license": "MIT",
 	"readme": "https://gramio.dev/plugins/official/media-group.html",
 	"homepage": "https://github.com/gramiojs/media-group",
 	"keywords": [
