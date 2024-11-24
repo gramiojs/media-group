@@ -47,4 +47,4 @@ By default it `150 ms`.
 
 ## TODO
 
--   Currently, it stateful, so it does not work with horizontal scaling. But for now, i think it is unfixable.
+-   Currently, it stateful, so it does not work with horizontal scaling. Fixes would be hard (for example serialize/deserialize context in redis and etc) and maybe slow in perfomance.
